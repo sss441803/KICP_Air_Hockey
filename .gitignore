@@ -1,6 +1,12 @@
 # Prerequisites
 *.d
 
+/vision/x64
+/vision/log.txt
+*.tlog
+*.log
+*.mpeg
+
 # Compiled Object files
 *.slo
 *.lo
