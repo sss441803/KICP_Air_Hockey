@@ -35,7 +35,7 @@ ISR(TIMER3_COMPA_vect)
   if (dir_M2 == 0)
     return;
 
-  SET(PORTD, 6); // STEP Y-AXIS (Motor2)
+  SET(PORTC, 6); // STEP Y-AXIS (Motor2)
   position_M2 += dir_M2;
   __asm__ __volatile__ (
     "nop" "\n\t"
@@ -48,7 +48,7 @@ ISR(TIMER3_COMPA_vect)
     "nop" "\n\t"
     "nop" "\n\t"
     "nop");  // Wait for step pulse
-  CLR(PORTD, 6);
+  CLR(PORTC, 6);
 }
 
 // POSITION CONTROL
@@ -203,12 +203,12 @@ void setMotorSpeed(int16_t m1tspeed, int16_t m2tspeed, int16_t dt)
     dir_M2 = 0;
   else if ((speed_M2 > 0) && (dir_M2 != 1))
   {
-    CLR(PORTC, 6);
+    CLR(PORTD, 4);
     dir_M2 = 1;
   }
   else if ((speed_M2 < 0) && (dir_M2 != -1))
   {
-    SET(PORTC, 6);
+    SET(PORTD, 4);
     dir_M2 = -1;
   }
 
@@ -349,8 +349,3 @@ void updatePosition_straight()
   target_speed_M1 = max_speed * factor1 * speedfactor1 * speedfactor1;
   target_speed_M2 = max_speed * factor2 * speedfactor2 * speedfactor2;
 }
-
-
-
-
-

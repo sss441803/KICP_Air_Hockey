@@ -19,18 +19,18 @@
 void setup()
 {
   // STEPPER PINS ON JJROBOTS BRAIN SHIELD
-  pinMode(4, OUTPUT); // ENABLE MOTORS
+  pinMode(2, OUTPUT); // ENABLE MOTORS
   pinMode(7, OUTPUT); // STEP MOTOR 1 PORTE,6
   pinMode(8, OUTPUT); // DIR MOTOR 1  PORTB,4
-  pinMode(12, OUTPUT); // STEP MOTOR 2 PORTD,6
-  pinMode(5, OUTPUT); // DIR MOTOR 2  PORTC,6
-  digitalWrite(4, HIGH);  // Disbale stepper motors
+  pinMode(5, OUTPUT); // STEP MOTOR 2 PORTC,6
+  pinMode(4, OUTPUT); // DIR MOTOR 2  PORTD,4
+  digitalWrite(2, HIGH);  // Disbale stepper motors
 
   pinMode(10, OUTPUT);  // Servo1 (arm)
   pinMode(13, OUTPUT);  // Servo2
 
-  pinMode(A4, OUTPUT);  // Microstepping selector
-  digitalWrite(A4, LOW); // 1/8 Microstepping
+  pinMode(A2, OUTPUT);  // Microstepping selector
+  digitalWrite(A2, LOW); // 1/8 Microstepping
 
   pinMode(A3,INPUT);   // User puch button (pushed=>gnd)
   digitalWrite(A3,HIGH); // Enable pullup
@@ -97,7 +97,7 @@ void setup()
   TIMSK3 |= (1 << OCIE1A); // Enable Timer1 interrupt
 
   // Enable steppers
-  digitalWrite(4, LOW);
+  digitalWrite(2, LOW);
 
   delay(1000);
 

@@ -214,12 +214,20 @@ void testMovements()
     return;
   }
   max_speed = user_max_speed;
-  if (loop_counter > 6000) 
+  if (loop_counter > 12000) 
+    setPosition_straight(ROBOT_INITIAL_POSITION_X, ROBOT_INITIAL_POSITION_Y);
+  else if (loop_counter > 10500) 
+    setPosition_straight(ROBOT_MAX_X, ROBOT_MIN_Y);
+  else if (loop_counter > 9000)        
+    setPosition_straight(ROBOT_MIN_X, ROBOT_MAX_Y);
+  else if (loop_counter > 7500) 
+    setPosition_straight(TABLE_WIDTH/2, ROBOT_MAX_Y);
+  else if (loop_counter > 6000) 
     setPosition_straight(ROBOT_INITIAL_POSITION_X, ROBOT_INITIAL_POSITION_Y);
   else if (loop_counter > 4500) 
-    setPosition_straight(ROBOT_MIN_X, ROBOT_MIN_X);
+    setPosition_straight(ROBOT_MIN_X, ROBOT_MIN_Y);
   else if (loop_counter > 3000)        
-    setPosition_straight(ROBOT_MAX_X, ROBOT_MAX_X);
+    setPosition_straight(ROBOT_MAX_X, ROBOT_MAX_Y);
   else if (loop_counter > 1500) 
     setPosition_straight(TABLE_WIDTH/2, ROBOT_MAX_Y);
   else
